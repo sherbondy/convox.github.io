@@ -77,7 +77,6 @@ end
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
-set :layouts_dir, 'assets/layouts'
 
 # Build-specific configuration
 configure :build do
@@ -86,6 +85,9 @@ configure :build do
 
   # Minify Javascript on build
   activate :minify_javascript
+
+  # Minify HTML on buid
+  activate :minify_html
 
   # Enable cache buster
   # activate :asset_hash

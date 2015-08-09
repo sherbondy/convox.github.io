@@ -1,6 +1,6 @@
 # Convox Docs
 
-This repo contains the source files for `https://docs.convox.com`.
+This repo contains the source files for [http://docs.convox.com/](http://docs.convox.com/).
 
 Documentation is written in Markdown (with options similar to [Github's Flavor](https://help.github.com/articles/github-flavored-markdown/)).
 
@@ -50,17 +50,21 @@ All pages are in groups, as specified in the frontmatter, groups are shown in th
 ├── Gemfile.lock
 ├── Procfile
 ├── README.md
+├── Rakefile
+├── build
+│   └── # .gitignored; contains compiled site
 ├── config.rb
 ├── data
 │   └── toc.yml # table of contents for side navigation
 └── source
-    ├── assets # contains all layouts, css, javascript and static images.
+    ├── assets # contains all css, javascript and static images.
     │   ├── images # static images
-    │   ├── docs # docs images namespaced by page
-    │   │   ├── creating-an-iam-user-and-credentials
-    │   │   │   └── get_started_iam.png
-    │   │   └── deleting-an-iam-user
-    │   │       └── delete_user.png
+    │   └── docs # docs images namespaced by page
+    │       ├── creating-an-iam-user-and-credentials
+    │       │   └── get_started_iam.png
+    │       └── deleting-an-iam-user
+    │           └── delete_user.png
+    ├── layouts #  contains layouts and partials
     ├── docs # contains all docs
     │   ├── concepts.md
     │   ├── creating-an-iam-user-and-credentials.md
@@ -74,4 +78,20 @@ All pages are in groups, as specified in the frontmatter, groups are shown in th
     │   ├── uninstall-convox.md
     │   └── updating-convox.md
     └── index.md # top level pages
+```
+
+# Publishing
+
+These Docs are designed to be `built` as a static site and deployed to the `gh-pages` branch of this repo by the Convox team.
+
+Several environment variables are required, as per `.env.example`
+
+```
+$ bundle exec middleman build # this builds the static content
+```
+
+There is a rake task to automate build and publish (commit to branch, push branch) for you.
+
+```
+$ bundle exec rake publish
 ```

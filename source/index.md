@@ -2,4 +2,4 @@
 title: Convox Docs
 ---
 
-There's currently no index page.
+Welcome to Convox's Docs.
