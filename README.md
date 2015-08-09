@@ -55,18 +55,23 @@ All pages are in groups, as specified in the frontmatter, groups are shown in th
 │   └── toc.yml # table of contents for side navigation
 └── source
     ├── assets # contains all layouts, css, javascript and static images.
-    ├── documentation
+    │   ├── images # static images
+    │   ├── docs # docs images namespaced by page
+    │   │   ├── creating-an-iam-user-and-credentials
+    │   │   │   └── get_started_iam.png
+    │   │   └── deleting-an-iam-user
+    │   │       └── delete_user.png
+    ├── docs # contains all docs
     │   ├── concepts.md
     │   ├── creating-an-iam-user-and-credentials.md
+    │   ├── custom-domains.md
     │   ├── deleting-an-iam-user.md
+    │   ├── deploying-an-application.md
+    │   ├── environment-variables.md
+    │   ├── getting-started-with-convox.md
     │   ├── troubleshooting-apps.md
     │   ├── troubleshooting-install.md
     │   ├── uninstall-convox.md
     │   └── updating-convox.md
-    ├── getting-started
-    │   ├── custom-domains.md
-    │   ├── deploying-an-application.md
-    │   ├── environment-variables.md
-    │   └── getting-started-with-convox.md
-    └── index.md
+    └── index.md # top level pages
 ```

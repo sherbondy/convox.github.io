@@ -5,30 +5,30 @@ group: "Documentation"
 ---
 Go to https://console.aws.amazon.com/iam/home?#security_credential and click `Get Started with IAM Users`.
 
-![](https://www.filepicker.io/api/file/oFMXea0RRnur2p2t3qU1)
+![](/assets/images/docs/creating-an-iam-user-and-credentials/get_started_iam.png)
 
 Click the `Create New Users` button.
 
-![](https://www.filepicker.io/api/file/WZc794mWRx6jMunjUlPv)
+![](/assets/images/docs/creating-an-iam-user-and-credentials/create_new_users.png)
 
  Enter the username "convox" and click `Create`.
 
-![](https://www.filepicker.io/api/file/FLBDYFrgSoCXVDVt3Z7u)
+![](/assets/images/docs/creating-an-iam-user-and-credentials/convox_user.png)
 
 On the next screen click the Download Credentials button, and save the resulting file. Then click Close.
 
-![](https://www.filepicker.io/api/file/fbYVNbVKTuqQOG503nsX)
+![](/assets/images/docs/creating-an-iam-user-and-credentials/download_creds.png)
 
 Click the "convox" User Name.
 
-![](https://www.filepicker.io/api/file/lIH0ZvxmSoezDpdr33dA)
+![](/assets/images/docs/creating-an-iam-user-and-credentials/click_user_name.png)
 
 Click the `Attach Policy` button.
 
-![](https://www.filepicker.io/api/file/86exQ82HQ6GOdlAcsZX5)
+![](/assets/images/docs/creating-an-iam-user-and-credentials/click_attach_policy.png)
 
 Check AdministratorAccess, then click the `Attach Policy` button.
 
-![](https://www.filepicker.io/api/file/ZYTUxa3TkJf3ubg6F1wf)
+![](/assets/images/docs/creating-an-iam-user-and-credentials/admin_access.png)
 
 Congratulations! You have now created an IAM user with the proper access to install Convox.
