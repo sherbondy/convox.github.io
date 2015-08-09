@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'middleman', '~>3.3.12'
 
+# syntax highlighting
+gem 'middleman-syntax', '~> 2.0'
+gem 'redcarpet', '~> 3.3'
+
 # Live-reloading plugin
 gem 'middleman-livereload', '~> 3.1.0'
 
