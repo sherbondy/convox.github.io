@@ -89,11 +89,3 @@ set :markdown, fenced_code_blocks: true,
   with_toc_data: true,
   strikethrough: true,
   superscript: true
-
-activate :navtree do |options|
-  options.data_file = 'table-of-contents.yml'
-  options.automatic_tree_updates = false # disable automatic TOC updates
-  options.ignore_dir = ['assets'] # An array of directories we want to ignore when building our tree.
-  options.promote_files = ['index.html.md'] # Any files we might want to promote to the front of our navigation
-  options.ext_whitelist = ['.md'] # only list .md files in the table of contents
-end

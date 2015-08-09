@@ -28,7 +28,7 @@
         <div class="row">
           <div class="col-sm-3 border-right">
             <div class="sidebar" data-spy="affix">
-              <ul><%= tree_to_html data['table-of-contents'] %></ul>
+              <%= partial 'assets/layouts/partials/toc' %>
             </div>
           </div>
           <div class="col-sm-9 border-left">
@@ -44,5 +44,6 @@
     <script src="//cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <%= javascript_include_tag "all" %>
     <%= google_analytics_universal_tag %>
+    <%= partial 'assets/layouts/partials/intercom' %>
   </body>
 </html>
