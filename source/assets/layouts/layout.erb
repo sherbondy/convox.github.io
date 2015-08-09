@@ -22,10 +22,21 @@
   </head>
 
   <body class="<%= page_classes %>">
-    <%= partial 'layouts/partials/header' %>
+    <%= partial 'assets/layouts/partials/header' %>
     <div class="container">
       <div class="main-content">
-        <%= yield %>
+        <div class="row">
+          <div class="col-sm-3 border-right">
+            <div class="sidebar" data-spy="affix">
+              <ul><%= tree_to_html data['table-of-contents'] %></ul>
+            </div>
+          </div>
+          <div class="col-sm-9 border-left">
+            <h1><%= current_page.data.title %></h1>
+            <hr>
+            <%= yield %>
+          </div>
+        </div>
       </div>
     </div><!-- /.container -->
 

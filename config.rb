@@ -1,3 +1,6 @@
+# This is a temporary PoC
+require 'monkey-patch-markdown'
+
 ###
 # Compass
 ###
@@ -47,9 +50,10 @@ end
 #   end
 # end
 
-set :css_dir, 'stylesheets'
-set :js_dir, 'javascripts'
-set :images_dir, 'images'
+set :css_dir, 'assets/stylesheets'
+set :js_dir, 'assets/javascripts'
+set :images_dir, 'assets/images'
+set :layouts_dir, 'assets/layouts'
 
 # Build-specific configuration
 configure :build do
@@ -76,6 +80,20 @@ activate :google_analytics do |ga|
   ga.domain_name = ENV['GOOGLE_ANALYTICS_DOMAIN_NAME']
 end
 
-activate :syntax, line_numbers: true
+activate :syntax, line_numbers: false
 set :markdown_engine, :redcarpet
-set :markdown, fenced_code_blocks: true, smartypants: true
+set :markdown, fenced_code_blocks: true,
+  autolink: true,
+  tables: true,
+  no_intra_emphasis: true,
+  with_toc_data: true,
+  strikethrough: true,
+  superscript: true
+
+activate :navtree do |options|
+  options.data_file = 'table-of-contents.yml'
+  options.automatic_tree_updates = false # disable automatic TOC updates
+  options.ignore_dir = ['assets'] # An array of directories we want to ignore when building our tree.
+  options.promote_files = ['index.html.md'] # Any files we might want to promote to the front of our navigation
+  options.ext_whitelist = ['.md'] # only list .md files in the table of contents
+end
