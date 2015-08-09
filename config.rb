@@ -14,6 +14,8 @@ require 'monkey-patch-markdown'
 # Page options, layouts, aliases and proxies
 ###
 
+set :layout, :sidebar_layout
+
 # Per-page layout changes:
 #
 # With no layout

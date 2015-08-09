@@ -26,16 +26,7 @@
     <div class="container">
       <div class="main-content">
         <div class="row">
-          <div class="col-sm-3 border-right">
-            <div class="sidebar" data-spy="affix" data-offset-top="30">
-              <%= partial 'assets/layouts/partials/toc' %>
-            </div>
-          </div>
-          <div class="col-sm-9 border-left">
-            <h1><%= current_page.data.title %></h1>
-            <hr>
-            <%= yield %>
-          </div>
+          <%= yield %>
         </div>
       </div>
     </div><!-- /.container -->
