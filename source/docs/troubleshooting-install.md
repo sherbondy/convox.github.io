@@ -1,5 +1,7 @@
 ---
 title: "Troubleshooting Install"
+sort: 50
+group: "Documentation"
 ---
 ## Problem: `convox install` failed
 

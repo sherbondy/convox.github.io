@@ -22,6 +22,26 @@ $ bundle exec middleman
 
 Please send updates to documentation as [Pull Requests](/pulls).
 
+
+### Frontmatter
+
+Each page in the documentation has a header, called frontmatter, this controls where it's displayed and it's title.
+
+e.g.
+
+```
+---
+title: "Custom Domains"
+sort: 40
+group: "Getting Started"
+---
+```
+
+### TOC
+
+All pages are in groups, as specified in the frontmatter, groups are shown in the sidebar navigation in the order they exist in `source/data/toc.yml`.
+
+
 ### Project Structure
 
 ```
@@ -31,6 +51,8 @@ Please send updates to documentation as [Pull Requests](/pulls).
 ├── Procfile
 ├── README.md
 ├── config.rb
+├── data
+│   └── toc.yml # table of contents for side navigation
 └── source
     ├── assets # contains all layouts, css, javascript and static images.
     ├── documentation

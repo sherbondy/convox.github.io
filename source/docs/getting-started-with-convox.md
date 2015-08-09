@@ -1,5 +1,7 @@
 ---
 title: "Getting Started with Convox"
+sort: 10
+group: "Getting Started"
 ---
 ## What is Convox?
 

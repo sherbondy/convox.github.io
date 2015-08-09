@@ -1,5 +1,7 @@
 ---
 title: "Environment Variables"
+sort: 30
+group: "Getting Started"
 ---
 You can configure secrets and links to external resources on your application using environment variables.
 

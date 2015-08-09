@@ -1,5 +1,7 @@
 ---
 title: "Updating Convox"
+sort: 70
+group: "Documentation"
 ---
 Convox is frequently releasing new versions of the [kernel](https://github.com/convox/kernel) and [cli](https://github.com/convox/cli) with features and bugfixes. To get the latest versions do:
 

@@ -50,6 +50,28 @@ end
 #   end
 # end
 
+helpers do
+  def groups
+    data.toc.groups
+  end
+
+  def group_pages(group)
+    sitemap.where(group: group).order_by(:sort).all
+  end
+
+  def sidebar_pages
+    pages = {}
+    groups.each do |group|
+      pages[group] = group_pages(group)
+    end
+    return pages
+  end
+
+  def nav_active(path)
+    current_page.path == path ? 'active' : ''
+  end
+end
+
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'

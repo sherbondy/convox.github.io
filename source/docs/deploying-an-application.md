@@ -1,5 +1,7 @@
 ---
 title: "Deploying an Application"
+sort: 20
+group: "Getting Started"
 ---
 Applications can be deployed to Convox via the `convox deploy` [CLI](https://github.com/convox/cli) command.
 
