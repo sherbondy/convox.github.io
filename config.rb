@@ -69,6 +69,13 @@ configure :build do
   # set :http_prefix, '/Content/images/'
 end
 
+activate :google_analytics do |ga|
+  ga.tracking_id = ENV['GOOGLE_ANALYTICS_TRACKING_ID']
+  ga.development = false
+  ga.minify = true
+  ga.domain_name = ENV['GOOGLE_ANALYTICS_DOMAIN_NAME']
+end
+
 activate :syntax, line_numbers: true
 set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true, smartypants: true

@@ -6,6 +6,8 @@ gem 'middleman', '~>3.3.12'
 gem 'middleman-syntax', '~> 2.0'
 gem 'redcarpet', '~> 3.3'
 
+gem 'middleman-google-analytics', '~> 1.1'
+
 # Live-reloading plugin
 gem 'middleman-livereload', '~> 3.1.0'
 
