@@ -76,11 +76,16 @@ body .main-content {
 }
 
 .sidebar h4 {
+  margin-top: 2em;
   font-weight: normal;
   text-transform: uppercase;
   font-size: 11px;
   margin-bottom: 10px;
   color: #bbb;
+}
+
+.sidebar h4:first-child {
+  margin-top: 0em;
 }
 
 .sidebar ul {
@@ -90,9 +95,25 @@ body .main-content {
   margin: 3px 0 0;
 }
 
-.sidebara.active {
+.sidebar a.active {
   color: #1675bb;
   font-weight: bold;
+}
+
+.sidebar ul li a {
+  padding: 3px 0;
+  display: block;
+  color: #666;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.sidebar.affix {
+  top: 30px;
+  width: 235px;
 }
 
 hr {
