@@ -28,14 +28,16 @@
         <div class="row">
           <div class="col-sm-3 border-right">
             <div class="sidebar" data-spy="affix" data-offset-top="30">
-              <% sidebar_pages.each do |group, pages| %>
-                <h4><%= group %></h4>
+              <h4>Getting Started</h4>
                 <ul>
-                {% for page in site.pages %}
-                    <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
+                {% for page in site.getting_started %}
+                  <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
                 {% endfor %} 
+              <h4>Documentation</h4>
+                {% for page in site.documentation %}
+                  <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
+                {% endfor %}
                 </ul>
-              <% end %>
             </div>
           </div>
           <div class="col-sm-9 border-left">
