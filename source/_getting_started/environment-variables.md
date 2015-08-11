@@ -5,19 +5,16 @@ group: "Getting Started"
 ---
 You can configure secrets and links to external resources on your application using environment variables.
 
-```shell
-$ convox env
-DATABASE_URL=postgres://example.org/db
-TWITTER_OAUTH_SECRET=a0b1c2d3
-
-$ convox env set FOO=bar
-
-$ convox env
-DATABASE_URL=postgres://example.org/db
-FOO=bar
-TWITTER_OAUTH_SECRET=a0b1c2d3
-```
-
+    $ convox env
+    DATABASE_URL=postgres://example.org/db
+    TWITTER_OAUTH_SECRET=a0b1c2d3
+    
+    $ convox env set FOO=bar
+    
+    $ convox env
+    DATABASE_URL=postgres://example.org/db
+    FOO=bar
+    TWITTER_OAUTH_SECRET=a0b1c2d3
 
 These environment variables will be available to your running application.
 

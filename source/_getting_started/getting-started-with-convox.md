@@ -17,26 +17,18 @@ Follow the step-by-step guide below to get started.
 ## Install the CLI
 
 ##### OSX
-```shell
-$ curl -Ls https://www.convox.com/downloads/osx/convox.zip > /tmp/convox.zip
-$ unzip /tmp/convox.zip -d /usr/local/bin
-```
+    $ curl -Ls https://www.convox.com/downloads/osx/convox.zip > /tmp/convox.zip
+    $ unzip /tmp/convox.zip -d /usr/local/bin
 
 ##### Linux
-```shell
-$ curl -Ls https://www.convox.com/downloads/linux/convox.zip > /tmp/convox.zip
-$ unzip /tmp/convox.zip -d /usr/local/bin
-```
-
-
+    $ curl -Ls https://www.convox.com/downloads/linux/convox.zip > /tmp/convox.zip
+    $ unzip /tmp/convox.zip -d /usr/local/bin
 
 ## Install Convox in AWS
 
 The `convox install` command will kick off the process of setting up Convox in your AWS account. All of the AWS resources required for creating a powerful app deployment platform will be correctly configured for you.
 
-```shell
-$ convox install
-```
+    $ convox install
 
 <div class="block-callout block-show-callout type-info">
 ### Security credentials
@@ -45,47 +37,41 @@ To install Convox into your AWS account, the Convox CLI needs an `AWS Access Key
 
 The installation process takes about 5 minutes. Go make a sandwich while you contemplate all of the AWS docs you're not reading and glue code you're not writing.
 
-```shell
-Installing Convox...
-Created IAM User: convox-RegistryUser-1L99G5CIN2YJ2
-Created ECS Cluster: convo-Clust-17YAVSE7MRRKH
-Created IAM User: convox-KernelUser-OC4CV0Q5NU8B
-Created Access Key: AKIAIIXP3G3F4TX3KY2A
-Created Access Key: AKIAIEP4FSGRQE5GGRRA
-Created S3 Bucket: convox-registrybucket-182tj69qj9k8y
-Created S3 Bucket: convox-settings-l5u6qcekwsq4
-Created VPC Internet Gateway: igw-b03f76d5
-Created VPC: vpc-fd130e98
-Created Lambda Function: convox-CustomTopic-484343B6HXL5
-Created Routing Table: rtb-6306fe07
-Created DynamoDB Table: convox-releases
-Created DynamoDB Table: convox-builds
-Created Security Group: sg-3be3365c
-Created Security Group: sg-3ee33659
-Created VPC Subnet: subnet-994567ee
-Created VPC Subnet: subnet-bece8be7
-Created VPC Subnet: subnet-9490febf
-Created Elastic Load Balancer: convox
-Created ECS TaskDefinition: KernelTasks
-Created ECS Service: Kernel
-Created AutoScalingGroup: convox-Instances-1496N5UFY25LU
-Created CloudFormation Stack: convox
-Waiting for load balancer...
-```
+    Installing Convox...
+    Created IAM User: convox-RegistryUser-1L99G5CIN2YJ2
+    Created ECS Cluster: convo-Clust-17YAVSE7MRRKH
+    Created IAM User: convox-KernelUser-OC4CV0Q5NU8B
+    Created Access Key: AKIAIIXP3G3F4TX3KY2A
+    Created Access Key: AKIAIEP4FSGRQE5GGRRA
+    Created S3 Bucket: convox-registrybucket-182tj69qj9k8y
+    Created S3 Bucket: convox-settings-l5u6qcekwsq4
+    Created VPC Internet Gateway: igw-b03f76d5
+    Created VPC: vpc-fd130e98
+    Created Lambda Function: convox-CustomTopic-484343B6HXL5
+    Created Routing Table: rtb-6306fe07
+    Created DynamoDB Table: convox-releases
+    Created DynamoDB Table: convox-builds
+    Created Security Group: sg-3be3365c
+    Created Security Group: sg-3ee33659
+    Created VPC Subnet: subnet-994567ee
+    Created VPC Subnet: subnet-bece8be7
+    Created VPC Subnet: subnet-9490febf
+    Created Elastic Load Balancer: convox
+    Created ECS TaskDefinition: KernelTasks
+    Created ECS Service: Kernel
+    Created AutoScalingGroup: convox-Instances-1496N5UFY25LU
+    Created CloudFormation Stack: convox
+    Waiting for load balancer...
 
 When the load balancer becomes available the installation is complete:
 
-```shell
-Logging in...
-Success, try convox apps
-```
+    Logging in...
+    Success, try convox apps
 
 You can run `convox apps` to verify that your client is properly communicating with the system.
 
-```shell
-$ convox apps
-APP  STATUS
-```
+    $ convox apps
+    APP  STATUS
 
 Congratulations! Convox is set up and ready to deploy apps. Try [deploying](/getting-started/deploying-an-application) one of our sample applications.
 
