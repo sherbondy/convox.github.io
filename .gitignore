@@ -10,6 +10,9 @@
 # Ignore the build directory
 /build
 
+# Ignore the _site directory
+/_site
+
 # Ignore cache
 /.sass-cache
 /.cache
