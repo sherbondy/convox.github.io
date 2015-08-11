@@ -30,10 +30,12 @@
             <div class="sidebar" data-spy="affix" data-offset-top="30">
               <h4>Getting Started</h4>
                 <ul>
-                {% for page in site.getting_started %}
+                {% assign pages = site.getting_started | sort: 'sort' %}
+                {% for page in pages %}
                   <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
                 {% endfor %} 
               <h4>Documentation</h4>
+                {% assign pages = site.getting_started | sort: 'sort' %}
                 {% for page in site.documentation %}
                   <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
                 {% endfor %}
