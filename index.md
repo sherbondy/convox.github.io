@@ -1,5 +1,6 @@
 ---
 title: "Getting Started with Convox"
+layout: default
 sort: 10
 group: "Getting Started"
 ---
