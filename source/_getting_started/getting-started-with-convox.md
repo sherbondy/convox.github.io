@@ -1,7 +1,6 @@
 ---
 title: "Getting Started with Convox"
 sort: 10
-group: "Getting Started"
 ---
 ## What is Convox?
 
@@ -31,8 +30,8 @@ The `convox install` command will kick off the process of setting up Convox in y
     $ convox install
 
 <div class="block-callout block-show-callout type-info">
-### Security credentials
-To install Convox into your AWS account, the Convox CLI needs an `AWS Access Key ID` and `Secret Access Key`. We highly recommend following AWS best practices by [creating a new IAM user to supply these credentials](/getting-started/creating-an-iam-user-and-credentials). Once the install is complete you can safely [delete the user](/getting-started/deleting-an-iam-user).
+  <h3>Security credentials</h3>
+  <p>To install Convox into your AWS account, the Convox CLI needs an <code>AWS Access Key ID</code> and <code>Secret Access Key</code>. We highly recommend following AWS best practices by <a href="/getting-started/creating-an-iam-user-and-credentials">creating a new IAM user to supply these credentials</a>. Once the install is complete you can safely <a href="/getting-started/deleting-an-iam-user">delete the user</a>.</p>
 </div>
 
 The installation process takes about 5 minutes. Go make a sandwich while you contemplate all of the AWS docs you're not reading and glue code you're not writing.
@@ -76,13 +75,13 @@ You can run `convox apps` to verify that your client is properly communicating w
 Congratulations! Convox is set up and ready to deploy apps. Try [deploying](/getting-started/deploying-an-application) one of our sample applications.
 
 <div class="block-callout block-show-callout type-warning">
-### Cost Management
+  <h3>Cost Management</h3>
 
-The Convox Installer by default provisions an Elastic Load Balancer and 3 t2.small instances, giving you 6GB of memory capacity. This runs the Convox API and Private Registry, and leaves room for 10 512MB containers.
+  <p>The Convox Installer by default provisions an Elastic Load Balancer and 3 t2.small instances, giving you 6GB of memory capacity. This runs the Convox API and Private Registry, and leaves room for 10 512MB containers.</p>
 
-This configuration costs $85/month according to the [AWS simple cost calculator](http://calculator.s3.amazonaws.com/index.html).
+  <p>This configuration costs $85/month according to the <a href="http://calculator.s3.amazonaws.com/index.html">AWS simple cost calculator</a>.</p>
 
-Each deployed app will provision an additional ELB which starts at $18/month.
+  <p>Each deployed app will provision an additional ELB which starts at $18/month.</p>
 
-At any time you can [uninstall Convox](/getting-started/uninstall-convox) to delete the resources and stop accruing costs.
+  <p>At any time you can [uninstall Convox](/getting-started/uninstall-convox) to delete the resources and stop accruing costs.</p>
 </div>

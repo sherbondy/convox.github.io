@@ -199,11 +199,12 @@ pre {
 }
 
 code {
-  font-family: Monaco, monospace;
-  font-size: 14px;
   background-color: #eee;
+  color: black;
 }
 
 pre code {
   background-color: #444;
+  font-family: Monaco, monospace;
+  font-size: 14px;
 }

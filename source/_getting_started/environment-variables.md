@@ -1,7 +1,6 @@
 ---
 title: "Environment Variables"
 sort: 30
-group: "Getting Started"
 ---
 You can configure secrets and links to external resources on your application using environment variables.
 
@@ -19,6 +18,6 @@ You can configure secrets and links to external resources on your application us
 These environment variables will be available to your running application.
 
 <div class="block-callout block-show-callout type-info">
-### Changing Environment Variables
-After making any change to your environment variables you will need to redeploy your application using `convox deploy`
+  <h3>Changing Environment Variables</h3>
+    <p>After making any change to your environment variables you will need to redeploy your application using <code>convox deploy</code></p>
 </div>

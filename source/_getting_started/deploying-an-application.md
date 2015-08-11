@@ -26,10 +26,10 @@ Deploying your app on Convox is easy. To deploy, simply run:
     $ convox deploy --app myapp
 
 <div class="block-callout block-show-callout type-info">
-### App Names
-Passing an app name with `--app` is optional. If you do not provide one, the name of your current directory will be used as the app name.
+  <h3>App Names</h3>
+  <p>Passing an app name with <code>--app</code> is optional. If you do not provide one, the name of your current directory will be used as the app name.</p>
 
-App names can be made up of alphanumeric characters and dashes.
+  <p>App names can be made up of alphanumeric characters and dashes.</p>
 </div>
 
 When you create a new app, Convox provisions all of the AWS infrastructure required to support your app. This will take a few minutes.
