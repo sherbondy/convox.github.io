@@ -4,11 +4,17 @@
 # or operating system, you probably want to add a global ignore instead:
 # git config --global core.excludesfile ~/.gitignore_global
 
+# Ignore vim swap files
+*.swp
+
 # Ignore bundler config
 /.bundle
 
 # Ignore the build directory
 /build
+
+# Ignore the _site directory
+/_site
 
 # Ignore cache
 /.sass-cache

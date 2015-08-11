@@ -188,3 +188,23 @@ hr {
 .block-show-callout.type-danger h3 {
   color: #d9534f;
 }
+
+pre {
+  padding: 7px;
+  background-color: #444;
+  color: white;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  border: 5px ridge;
+}
+
+code {
+  background-color: #eee;
+  color: black;
+}
+
+pre code {
+  background-color: #444;
+  font-family: Monaco, monospace;
+  font-size: 14px;
+}

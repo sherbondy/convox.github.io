@@ -1,8 +1,0 @@
-<% sidebar_pages.each do |group, pages| %>
-<h4><%= group %></h4>
-  <ul>
-    <% pages.each do |page| %>
-      <li><a href="/<%= page.path %>" class="<%= nav_active(page.path) %>"><span><%= page.data.title %></span></a></li>
-    <% end %>
-  </ul>
-<% end %>

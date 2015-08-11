@@ -1,0 +1,13 @@
+source: source
+collections:
+  getting_started:
+    output: true
+    permalink: /:name/
+  documentation:
+    output: true
+    permalink: /:name/
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
