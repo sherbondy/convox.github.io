@@ -4,7 +4,7 @@ This repo contains the source files for [http://docs.convox.com/](http://docs.co
 
 Documentation is written in Markdown (with options similar to [Github's Flavor](https://help.github.com/articles/github-flavored-markdown/)).
 
-[Middleman](https://middlemanapp.com/) is used to generate static HTML files.
+[Jekyll](https://http://jekyllrb.com//) is used to generate static HTML files.
 
 Please let us know about any issues, either via [issues](/issues) or by emailing [support@convox.com](mailto:support@convox.com)
 
@@ -12,12 +12,12 @@ Pull Requests are also welcome!
 
 ## Usage
 
-Ruby and bundler are required to run Middleman.
+Ruby and bundler are required.
 
 ```shell
 $ bundle install
-$ bundle exec middleman
-== The Middleman is standing watch at http://localhost:4567/ (http://127.0.0.1:4567/)
+$ jekyll serve
+==    Server address: http://127.0.0.1:4000/
 ```
 
 Please send updates to documentation as [Pull Requests](/pulls).
@@ -33,14 +33,8 @@ e.g.
 ---
 title: "Custom Domains"
 sort: 40
-group: "Getting Started"
 ---
 ```
-
-### TOC
-
-All pages are in groups, as specified in the frontmatter, groups are shown in the sidebar navigation in the order they exist in `source/data/toc.yml`.
-
 
 ### Project Structure
 
@@ -48,14 +42,10 @@ All pages are in groups, as specified in the frontmatter, groups are shown in th
 .
 ├── Gemfile
 ├── Gemfile.lock
-├── Procfile
 ├── README.md
-├── Rakefile
-├── build
+├── _site
 │   └── # .gitignored; contains compiled site
-├── config.rb
-├── data
-│   └── toc.yml # table of contents for side navigation
+├── _config.yml
 └── source
     ├── assets # contains all css, javascript and static images.
     │   ├── images # static images
@@ -64,15 +54,16 @@ All pages are in groups, as specified in the frontmatter, groups are shown in th
     │       │   └── get_started_iam.png
     │       └── deleting-an-iam-user
     │           └── delete_user.png
-    ├── layouts #  contains layouts and partials
-    ├── docs # contains all docs
-    │   ├── concepts.md
-    │   ├── creating-an-iam-user-and-credentials.md
-    │   ├── custom-domains.md
-    │   ├── deleting-an-iam-user.md
+    ├── _layouts #  contains layouts and partials
+    ├── _getting_started
+    │   ├── getting-started-with-convox.md
     │   ├── deploying-an-application.md
     │   ├── environment-variables.md
-    │   ├── getting-started-with-convox.md
+    │   ├── custom-domains.md
+    ├── _documentation
+    │   ├── concepts.md
+    │   ├── creating-an-iam-user-and-credentials.md
+    │   ├── deleting-an-iam-user.md
     │   ├── troubleshooting-apps.md
     │   ├── troubleshooting-install.md
     │   ├── uninstall-convox.md
@@ -82,16 +73,4 @@ All pages are in groups, as specified in the frontmatter, groups are shown in th
 
 # Publishing
 
-These Docs are designed to be `built` as a static site and deployed to the `gh-pages` branch of this repo by the Convox team.
-
-Several environment variables are required, as per `.env.example`
-
-```
-$ bundle exec middleman build # this builds the static content
-```
-
-There is a rake task to automate build and publish (commit to branch, push branch) for you.
-
-```
-$ bundle exec rake publish
-```
+Docs are published automatically by Github Pages.
