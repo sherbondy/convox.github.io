@@ -1,10 +1,10 @@
 collections:
   getting_started:
     output: true
-    permalink: /:name/
+    permalink: /docs/:name/
   documentation:
     output: true
-    permalink: /:name/
+    permalink: /docs/:name/
 defaults:
   - scope:
       path: ""
