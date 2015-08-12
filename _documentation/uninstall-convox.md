@@ -1,7 +1,6 @@
 ---
 title: "Uninstalling Convox"
 sort: 40
-group: "Documentation"
 ---
 Your rack can be uninstalled using the CLI. AWS credentials are required for this process, so please refer to the guide if you need to generate those. To uninstall type:
 

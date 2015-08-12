@@ -1,7 +1,6 @@
 ---
 title: "Concepts"
 sort: 10
-group: "Documentation"
 ---
 ### Apps
 
