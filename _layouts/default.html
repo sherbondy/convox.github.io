@@ -36,8 +36,8 @@
                   <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
                 {% endfor %} 
               <h4>Documentation</h4>
-                {% assign pages = site.getting_started | sort: 'sort' %}
-                {% for page in site.documentation %}
+                {% assign pages = site.documentation | sort: 'sort' %}
+                {% for page in pages %}
                   <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
                 {% endfor %}
                 </ul>
