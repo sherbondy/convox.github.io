@@ -83,5 +83,5 @@ Congratulations! Convox is set up and ready to deploy apps. Try [deploying](/doc
 
   <p>Each deployed app will provision an additional ELB which starts at $18/month.</p>
 
-  <p>At any time you can <a href="/docs/uninstall-convox"uninstall Convox</a> to delete the resources and stop accruing costs.</p>
+  <p>At any time you can <a href="/docs/uninstall-convox">uninstall Convox</a> to delete the resources and stop accruing costs.</p>
 </div>
