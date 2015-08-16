@@ -22,7 +22,7 @@ To see relevant info about the database, use the `convox services info` command.
     Status  running
     URL     postgres://postgres::)t[THpZ[wmCn88n,N(:@pg1.cbm068zjzjcr.us-east-1.rds.amazonaws.com:5432/app
 
-Add the URL to the environment of any app that needs to use the database:
+Add the URL to the environment of any app that needs to use the database. Make sure to put quotes around the string to avoid issues with invalid characters:
 
     $ convox env set 'DATABASE_URL=postgres://postgres::)t[THpZ[wmCn88n,N(:@pg1.cbm068zjzjcr.us-east-1.rds.amazonaws.com:5432/app' --app myapp
 
