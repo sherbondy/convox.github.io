@@ -2,42 +2,54 @@
 title: "Deploying an Application"
 sort: 20
 ---
-Applications can be deployed to Convox via the `convox deploy` [CLI](https://github.com/convox/cli) command.
-
-## Deploying an example app
-
-To quickly see Convox deployment in action, you can clone one of our [example apps](https://github.com/convox-examples).
+Applications can be deployed to Convox via the `convox deploy` [CLI](https://github.com/convox/cli) command. To quickly see Convox deployment in action, you can clone our Sinatra [example app](https://github.com/convox-examples/sinatra).
 
     $ git clone git@github.com:convox-examples/sinatra.git
 
-Change into the sinatra directory and deploy the application.
+### Create the app
+
+Change into the sinatra directory and create the application.
 
     $ cd sinatra
-    $ convox apps create
-    $ convox deploy
+    $ convox apps create sinatra
 
-## Deploying your own app
+### Create the backing services
 
-Deploying your app on Convox is easy. To deploy, simply run:
+When you create a new app, Convox provisions all of the AWS infrastructure required to support your core application. You'll also need to create the Postgres and Redis services that this app needs:
 
-    $ cd ~/myapp
-    $ convox apps create myapp
-    $ convox deploy --app myapp
+    $ convox services create postgres1 postgres
+    Creating service postgres1 (postgres)... OK, postgres1
+
+    $ convox services create redis1 redis
+    Creating service redis1 (redis)... OK, redis1
 
 <div class="block-callout block-show-callout type-info">
-  <h3>App Names</h3>
-  <p>Passing an app name with <code>--app</code> is optional. If you do not provide one, the name of your current directory will be used as the app name.</p>
-
-  <p>App names can be made up of alphanumeric characters and dashes.</p>
+  <p>Each of these create commands takes a few minutes to complete. We recommend running them in parallel in separate terminals to save time.</p>
 </div>
 
-When you create a new app, Convox provisions all of the AWS infrastructure required to support your app. This will take a few minutes.
+### Set the environment
 
-The first deployment can also be a little slow as all of the Docker images are built. Subsequent deploys of the same app will be significantly faster since they will take advantage of Docker layer caching.
+Once the service creation is complete, set the `POSTGRES_URL` and `REDIS_URL` environment variables. You can fetch these URLs using the `convox services info` command. Note that your passwords will be different than those shown here.
 
-The Convox CLI will print live updates as the deployment proceeds:
+    $ convox services info postgres1
+    Name    postgres1
+    Status  running
+    URL     postgres://postgres:KEDS6tKPZb1iffVB8IXi@postgres1.cbm068zjzjcr.us-east-1.rds.amazonaws.com:5432/app
 
-    $ convox deploy --app myapp
+    $ convox env set POSTGRES_URL=postgres://postgres:KEDS6tKPZb1iffVB8IXi@postgres1.cbm068zjzjcr.us-east-1.rds.amazonaws.com:5432/app
+
+    $ convox services info redis1
+    Name    redis1
+    Status  running
+    URL     redis://u:Rn2uRT7g7NJ8iXNAtnSj@redis1-Balancer-124JJ4R695MAR-153811640.us-east-1.elb.amazonaws.com:6379/0
+
+    $ convox env set REDIS_URL=redis://u:Rn2uRT7g7NJ8iXNAtnSj@redis1-Balancer-124JJ4R695MAR-153811640.us-east-1.elb.amazonaws.com:6379/0
+
+### Deploy the app
+
+Use the `convox deploy` command to deploy the app. The Convox CLI will print live updates as the deployment proceeds.
+
+    $ convox deploy
     Uploading... OK
     RUNNING: docker build -t xmjsczmcug /tmp/repo044075326/clone
     Sending build context to Docker daemon 92.16 kB
@@ -46,14 +58,14 @@ The Convox CLI will print live updates as the deployment proceeds:
     2.2.2: Pulling from ruby
     ...
 
-when the build finishes the release ID will be shown.
+When the build finishes the release ID will be shown.
 
     Releasing... OK, RANLOWQFMRF
 
-If necessary, the CLI will also wait for the app's load balancer to become available.
+The CLI will wait for the app's load balancer to become available.
 
     Waiting for app...
 
 When the load balancer becomes available the deploy is finished. Any processes with open ports will be listed.
 
-    main: http://myapp-62376059.us-east-1.elb.amazonaws.com:5000
+    web: http://sinatra-1233165548.us-east-1.elb.amazonaws.com:3000 
