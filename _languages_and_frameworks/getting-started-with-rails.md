@@ -126,6 +126,10 @@ When the deployment finishes the URL of the app will be returned:
     Waiting for app... OK
     web: http://simple-rails-764877228.us-east-1.elb.amazonaws.com:5000 
 
+Scale down the db process since we're using a hosted database:
+
+    $ convox scale simple-rails-postgres --count 0
+
 To finish up, run the database migrations on your production database:
 
     $ convox run web rake db:migrate
