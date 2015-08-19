@@ -2,6 +2,9 @@ collections:
   getting_started:
     output: true
     permalink: /docs/:name/
+  languages_and_frameworks:
+    output: true
+    permalink: /docs/:name/
   documentation:
     output: true
     permalink: /docs/:name/
