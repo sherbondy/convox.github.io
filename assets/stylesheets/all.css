@@ -208,3 +208,43 @@ pre code {
   font-family: Monaco, monospace;
   font-size: 14px;
 }
+
+.docs-search {
+  position: relative;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.docs-search .form-control {
+  height: 2.45rem;
+  padding-top: .4rem;
+  padding-bottom: .4rem;
+}
+
+.docs-search .form-control:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.25);
+}
+
+.docs-search-results {
+  top: 108%;
+  right: 0;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
+.docs-search-results > li > a {
+  padding-left: .75rem;
+  padding-right: .75rem;
+}
+
+.docs-search-results > li:first-child {
+  padding-top: .25rem;
+}
+
+.docs-search-results > li:last-child {
+  padding-bottom: .25rem;
+}
