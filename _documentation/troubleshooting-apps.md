@@ -30,4 +30,4 @@ Run `convox debug` to get a list of all the CloudFormation and ECS events for yo
 
 ## Problem: Convox deploy hangs at 'Waiting for app...'
 
-**Solution: Ensure that your application is bound to 0.0.0.0, not 127.0.0.1. Otherwise diagnose with `convox logs` and `convox debug as described above.
+**Solution: Ensure that your application is bound to 0.0.0.0, not 127.0.0.1. Otherwise diagnose with `convox logs` and `convox debug` as described above.
