@@ -34,13 +34,13 @@
                 {% assign pages = site.getting_started | sort: 'sort' %}
                 {% for page in pages %}
                   <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
-                {% endfor %} 
+                {% endfor %}
               <h4>Languages and Frameworks</h4>
                 <ul>
                 {% assign pages = site.languages_and_frameworks | sort: 'sort' %}
                 {% for page in pages %}
                   <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
-                {% endfor %} 
+                {% endfor %}
               <h4>Documentation</h4>
                 {% assign pages = site.documentation | sort: 'sort' %}
                 {% for page in pages %}
@@ -60,6 +60,7 @@
 
     <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    {% include _search.html %}
     {% include _google_analytics.html %}
     {% include _intercom.html %}
   </body>
