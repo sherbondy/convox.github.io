@@ -1,6 +1,6 @@
 ---
-title: "Databases"
-sort: 40
+title: "PostgreSQL database"
+sort: 10
 ---
 ### Creating a database
 
