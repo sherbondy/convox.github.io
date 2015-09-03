@@ -34,6 +34,12 @@ The `convox install` command will kick off the process of setting up Convox in y
   <p>To install Convox into your AWS account, the Convox CLI needs an <code>AWS Access Key ID</code> and <code>Secret Access Key</code>. We highly recommend following AWS best practices by <a href="/docs/creating-an-iam-user-and-credentials">creating a new IAM user to supply these credentials</a>. Once the install is complete you can safely <a href="/docs/deleting-an-iam-user">delete the user</a>.</p>
 </div>
 
+<div class="block-callout block-show-callout type-primary">
+  <h3>Rack Region</h3>
+  <p>A Rack exists in one AWS region. Since Convox depends on specific AWS services you can't deploy Rack's in all regions. Currently AWS regions that support both <em>Lambda</em> and <em>EC2 Container Service</em> are supported.</p>
+  <p>Region can be specified on Rack install using the <code>--region</code> flag.</p>
+</div>
+
 The installation process takes about 5 minutes. Go make a sandwich while you contemplate all of the AWS docs you're not reading and glue code you're not writing.
 
     Installing Convox...
@@ -83,5 +89,5 @@ Congratulations! Convox is set up and ready to deploy apps. Try [deploying](/doc
 
   <p>Each deployed app will provision an additional ELB which starts at $18/month.</p>
 
-  <p>At any time you can <a href="/docs/uninstall-convox">uninstall Convox</a> to delete the resources and stop accruing charges.</p>
+  <p>At any time you can <a href="/docs/uninstall-convox">uninstall Convox</a> to delete the resources and stop accruing costs.</p>
 </div>
