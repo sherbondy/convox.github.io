@@ -34,7 +34,7 @@ The `convox install` command will kick off the process of setting up Convox in y
   <p>To install Convox into your AWS account, the Convox CLI needs an <code>AWS Access Key ID</code> and <code>Secret Access Key</code>. We highly recommend following AWS best practices by <a href="/docs/creating-an-iam-user-and-credentials">creating a new IAM user to supply these credentials</a>. Once the install is complete you can safely <a href="/docs/deleting-an-iam-user">delete the user</a>.</p>
 </div>
 
-The installation process takes about 5 minutes. Go make a sandwich while you contemplate all of the AWS docs you're not reading and glue code you're not writing.
+The installation process takes about 5 minutes. Feel free to go make a sandwich while you contemplate all of the AWS docs you're not reading and glue code you're not writing.
 
     Installing Convox...
     Created IAM User: convox-RegistryUser-1L99G5CIN2YJ2
