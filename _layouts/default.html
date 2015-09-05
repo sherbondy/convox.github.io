@@ -35,15 +35,15 @@
                 {% for page in pages %}
                   <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
                 {% endfor %}
-              <h4>Services</h4>
-                <ul>
-                {% assign pages = site.services | sort: 'sort' %}
-                {% for page in pages %}
-                  <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
-                {% endfor %}
               <h4>Languages and Frameworks</h4>
                 <ul>
                 {% assign pages = site.languages_and_frameworks | sort: 'sort' %}
+                {% for page in pages %}
+                  <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
+                {% endfor %}
+              <h4>Services</h4>
+                <ul>
+                {% assign pages = site.services | sort: 'sort' %}
                 {% for page in pages %}
                   <li><a href="{{ page.url }}"><span>{{ page.title }}</span></a></li>
                 {% endfor %}
