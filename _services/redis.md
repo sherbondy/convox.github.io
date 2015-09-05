@@ -1,5 +1,5 @@
 ---
-title: "Redis database"
+title: "Redis"
 sort: 20
 ---
 ### Creating a database

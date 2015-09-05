@@ -1,5 +1,5 @@
 ---
-title: "PostgreSQL database"
+title: "PostgreSQL"
 sort: 10
 ---
 ### Creating a database
