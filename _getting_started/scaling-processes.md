@@ -1,6 +1,6 @@
 ---
 title: "Scaling Processes"
-sort: 50
+sort: 40
 ---
 ### Scaling processes up
 

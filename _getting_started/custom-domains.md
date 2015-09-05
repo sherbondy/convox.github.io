@@ -1,6 +1,6 @@
 ---
 title: "Custom Domains"
-sort: 60
+sort: 50
 ---
 Every app with open ports that you deploy to Convox will be assigned a load balancer. Its hostname can be fetched at any time using the `convox apps info` command:
 
