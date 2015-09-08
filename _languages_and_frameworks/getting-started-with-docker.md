@@ -105,7 +105,7 @@ Now that you have an app working with `convox start` you can deploy it to produc
     $ convox apps create simple-apache
     Creating app simple-apache... OK
 
-Now we're ready to deploy the app:
+Then deploy with:
 
     $ convox deploy --app simple-apache
 
