@@ -89,7 +89,7 @@ Restart your application with
 
     $ convox start
 
-Now when you change files in the `./public-html` directory of your local filesystem the changes are automatically synced to your development containr.
+Now when you change files in the `./public-html` directory of your local filesystem the changes are automatically synced to your development container.
 
 Let's add some emphasis to our `index.html`:
 
