@@ -25,7 +25,7 @@ And your `docker-compose.yml` should look like this:
     main:
       build: .
       ports:
-        - 5000:80
+        - 80:80
 
 Convox uses Docker under the hood for containerization, and these two files contain all the information it needs to build and run your app.
 
@@ -35,12 +35,12 @@ You can now boot the app with Convox:
 
     $ convox start
 
-Apache should now be up and running. Point your browser to http://&lt;docker host IP&gt;:5000.
+Apache should now be up and running. Point your browser to http://&lt;docker host IP&gt;
 
 
 If you're using `docker-machine` and your development VM is called `dev`, you can simply:
 
-    $ open http://$(docker-machine ip dev):5000
+    $ open http://$(docker-machine ip dev)
 
 You should see the "It works!" welcome page.
 
@@ -81,7 +81,7 @@ This will keep the container filesystems in sync with your local filesystem. Edi
     main:
       build: .
       ports:
-        - 5000:80
+        - 80:80
       volumes:
         - ./public-html/:/usr/local/apache2/htdocs/
 
