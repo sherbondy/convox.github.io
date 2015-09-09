@@ -82,15 +82,54 @@ You should see our application server: any path you visit at this host will get 
 ![golang-welcome-page](/assets/images/docs/getting-started-with-golang/hello.png)
 
 
-### Going Further
+### Let's get minimal
 
-There are many ways to build your Golang apps with Docker:
+There are many ways to build your Golang apps with Docker.
+The easiest way to compare them is by the size of the image created.
+The default golang image includes not just the Go runtime, but an entire linux distro:
 
-- [The Convox Kernel](https://github.com/convox/kernel)
-  is a great example of using Alpine Linux as the base distro and
-  using the `rerun` utility to avoid rebuilding the docker image in development mode
-- [Nick Guthier's post](https://blog.codeship.com/building-minimal-docker-containers-for-go-applications/)
-  shows us just how minimal one can get with static binaries and Go
+    $ docker build -t go-app .
+    $ docker images | grep go-app
+    go-app                latest              df6880858cf5        5 hours ago         670.5 MB
+    go-app/main           latest              df6880858cf5        5 hours ago         670.5 MB
+
+On the other end of the spectrum,
+see [Nick Guthier's post](https://blog.codeship.com/building-minimal-docker-containers-for-go-applications/)
+for shipping nothing but a static go binary on top of the 0-byte "`scratch`" image.
+This method, while a bit more manual (managing ssl certs)
+and complex (requires compiling the go app as a separate step from building your image),
+can yield images smaller than 50MB!
+
+Here's a middle of the raod approach.
+We start with a minimal linux runtime and still do the go compilation as part of our build.
+
+Edit your `Dockerfile` to contain:
+
+    FROM gliderlabs/alpine:3.2
+
+    RUN apk-install docker git
+
+    RUN apk-install go
+    ENV GOPATH /go
+    ENV PATH $GOPATH/bin:$PATH
+
+    RUN go get github.com/ddollar/init
+
+    WORKDIR /go/src/github.com/usr/app
+    COPY . /go/src/github.com/usr/app
+    RUN go get .
+
+    ENV PORT 3000
+    ENTRYPOINT ["/go/bin/init"]
+    CMD ["app"]
+
+This will get you Alpine Linux 3.2 and Go 1.4.
+As you can see, we haven't crossed the sub-100MB threshold, but we're almost 4 times smaller!
+
+    $ docker build -t go-app .
+    $ docker images | grep go-app
+    go-app/main           latest              2cc80122624f        22 seconds ago       174.5 MB
+    go-app                latest              2cc80122624f        22 seconds ago       174.5 MB
 
 
 ### Deploying to your Convox rack
