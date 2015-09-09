@@ -26,14 +26,14 @@ However, for this example we're going to use the [official golang image](https:/
 Create a `Dockerfile` that looks like this:
 
     FROM golang:onbuild
-    ENV PORT 3000
+    ENV PORT 5000
 
 And a `docker-compose.yml` that looks like this:
 
     main:
       build: .
       ports:
-        - 5000:3000
+        - 80:5000
 
 Convox uses Docker under the hood for containerization,
 and these two files contain all the information it needs to build and run your app.
@@ -71,11 +71,11 @@ You can now boot the app with Convox:
 
     $ convox start
 
-The server should now be up and running. Point your browser to http://&lt;docker host IP&gt;:5000.
+The server should now be up and running. Point your browser to http://&lt;docker host IP&gt;
 
 If you're using `docker-machine` and your development VM is called `dev`, you can simply:
 
-    $ open http://$(docker-machine ip dev):5000
+    $ open http://$(docker-machine ip dev)
 
 You should see our application server: any path you visit at this host will get echo'ed back.
 
