@@ -21,7 +21,7 @@ At Convox, we're huge fans of the [Alpine Linux distros from Glider Labs](https:
 They allow us to produce small images, pairing perfectly with Go's static binaries.
 
 However, for this example we're going to use the [official golang image](https://hub.docker.com/_/golang/)
- from docker hub.
+ from Docker Hub.
 
 Create a `Dockerfile` that looks like this:
 
@@ -87,7 +87,7 @@ You should see our application server: any path you visit at this host will get 
 There are many ways to build your Golang apps with Docker:
 
 - [The Convox Kernel](https://github.com/convox/kernel)
-  is a great example of using Alpine linux as the base distro and
+  is a great example of using Alpine Linux as the base distro and
   using the `rerun` utility to avoid rebuilding the docker image in development mode
 - [Nick Guthier's post](https://blog.codeship.com/building-minimal-docker-containers-for-go-applications/)
   shows us just how minimal one can get with static binaries and Go
