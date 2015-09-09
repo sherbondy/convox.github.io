@@ -38,7 +38,7 @@ This schedules two new web processes to come up with 512 MB of memory, then stop
 
 ### Scaling processes down
 
-You can also scale processes down to free up resources. For example, after you have configured a postgres and redis [database service](/docs/postgresql), you no longer need the development postgres and redis process:
+You can also scale processes down to free up resources. For example, after you have configured [postgres](/docs/postgresql) or [redis](/docs/redis) services, you no longer need the development postgres and redis process:
 
     $ convox scale postgres --count 0
     $ convox scale redis --count 0
