@@ -127,7 +127,7 @@ Edit your `Dockerfile` to contain:
     COPY . /go/src/github.com/usr/app
     RUN go get .
 
-    ENV PORT 3000
+    ENV PORT 5000
     ENTRYPOINT ["/go/bin/init"]
     CMD ["app"]
 
