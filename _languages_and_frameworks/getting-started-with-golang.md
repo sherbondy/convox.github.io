@@ -45,7 +45,6 @@ And a `docker-compose.yml` that looks like this:
 Convox uses Docker under the hood for containerization,
 and these two files contain all the information it needs to build and run your app.
 
-
 ### Simple Go Server
 
 Now we need an application server. Let's start with something simple in `main.go`:
@@ -71,6 +70,8 @@ Now we need an application server. Let's start with something simple in `main.go
       log.Println("listening=" + port)
       log.Fatal(http.ListenAndServe(":"+port, nil))
     }
+
+For your convenience, the following files can also be checked out from [Github](https://github.com/convox-examples/go-app).
 
 ### First boot
 
