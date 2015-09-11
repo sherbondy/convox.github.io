@@ -145,6 +145,7 @@ As you can see, we haven't crossed the sub-100MB threshold, but we're almost 4 t
     go-app/main           latest              2cc80122624f        22 seconds ago       174.5 MB
     go-app                latest              2cc80122624f        22 seconds ago       174.5 MB
 
+This minimal version of the app is available as a branch of the example project on [Github](https://github.com/convox-examples/go-app/tree/minimal).
 
 ### Deploying to your Convox rack
 
