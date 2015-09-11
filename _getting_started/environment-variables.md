@@ -19,5 +19,5 @@ These environment variables will be available to your running application.
 
 <div class="block-callout block-show-callout type-info">
   <h3>Changing Environment Variables</h3>
-    <p>After making any change to your environment variables you will need to redeploy your application using <code>convox deploy</code></p>
+    <p>After making any change to your environment variables you will need to promote the new release using <code>convox releases promote &lt;release id&gt;</code>, or redeploy using <code>convox deploy</code></p>
 </div>
