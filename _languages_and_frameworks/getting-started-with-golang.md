@@ -40,7 +40,7 @@ And a `docker-compose.yml` that looks like this:
       build: .
       ports:
         - 80:5000
-      command: command: go-wrapper run
+      command: go-wrapper run
 
 Convox uses Docker under the hood for containerization,
 and these two files contain all the information it needs to build and run your app.
