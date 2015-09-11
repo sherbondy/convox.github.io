@@ -25,8 +25,14 @@ However, for this example we're going to use the [official golang image](https:/
 
 Create a `Dockerfile` that looks like this:
 
-    FROM golang:onbuild
+    FROM golang:1.4
+    
     ENV PORT 5000
+    
+    WORKDIR /go/src/app
+    COPY . /go/src/app
+    RUN go-wrapper download
+    RUN go-wrapper install 
 
 And a `docker-compose.yml` that looks like this:
 
@@ -34,10 +40,10 @@ And a `docker-compose.yml` that looks like this:
       build: .
       ports:
         - 80:5000
+      command: command: go-wrapper run
 
 Convox uses Docker under the hood for containerization,
 and these two files contain all the information it needs to build and run your app.
-
 
 ### Simple Go Server
 
@@ -65,6 +71,8 @@ Now we need an application server. Let's start with something simple in `main.go
       log.Fatal(http.ListenAndServe(":"+port, nil))
     }
 
+For your convenience, the following files can also be checked out from [Github](https://github.com/convox-examples/go-app).
+
 ### First boot
 
 You can now boot the app with Convox:
@@ -82,16 +90,62 @@ You should see our application server: any path you visit at this host will get 
 ![golang-welcome-page](/assets/images/docs/getting-started-with-golang/hello.png)
 
 
-### Going Further
+### Let's get minimal
 
-There are many ways to build your Golang apps with Docker:
+There are many ways to build your Golang apps with Docker.
+The easiest way to compare them is by the size of the image created.
+The default golang image includes not just the Go runtime, but an entire linux distro:
 
-- [The Convox Kernel](https://github.com/convox/kernel)
-  is a great example of using Alpine Linux as the base distro and
-  using the `rerun` utility to avoid rebuilding the docker image in development mode
-- [Nick Guthier's post](https://blog.codeship.com/building-minimal-docker-containers-for-go-applications/)
-  shows us just how minimal one can get with static binaries and Go
+    $ docker build -t go-app .
+    $ docker images | grep go-app
+    go-app                latest              df6880858cf5        5 hours ago         670.5 MB
+    go-app/main           latest              df6880858cf5        5 hours ago         670.5 MB
 
+On the other end of the spectrum,
+see [Nick Guthier's post](https://blog.codeship.com/building-minimal-docker-containers-for-go-applications/)
+for shipping nothing but a static go binary on top of the 0-byte "`scratch`" image.
+This method, while a bit more manual (managing ssl certs)
+and complex (requires compiling the go app as a separate step from building your image),
+can yield images smaller than 50MB!
+
+Here's a middle of the raod approach.
+We start with a minimal linux runtime and still do the go compilation as part of our build.
+
+Edit your `Dockerfile` to contain:
+
+    FROM gliderlabs/alpine:3.2
+
+    RUN apk-install docker git
+
+    RUN apk-install go
+    ENV GOPATH /go
+    ENV PATH $GOPATH/bin:$PATH
+
+    RUN go get github.com/ddollar/init
+
+    WORKDIR /go/src/github.com/usr/app
+    COPY . /go/src/github.com/usr/app
+    RUN go get .
+
+    ENV PORT 5000
+    ENTRYPOINT ["/go/bin/init"]
+
+This will get you Alpine Linux 3.2 and Go 1.4. Edit your `docker-compose.yml` to look like this:
+
+    main:
+      build: .
+      ports:
+        - 80:5000
+      command: app
+
+As you can see, we haven't crossed the sub-100MB threshold, but we're almost 4 times smaller!
+
+    $ docker build -t go-app .
+    $ docker images | grep go-app
+    go-app/main           latest              2cc80122624f        22 seconds ago       174.5 MB
+    go-app                latest              2cc80122624f        22 seconds ago       174.5 MB
+
+This minimal version of the app is available as a branch of the example project on [Github](https://github.com/convox-examples/go-app/tree/minimal).
 
 ### Deploying to your Convox rack
 
