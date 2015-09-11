@@ -25,8 +25,14 @@ However, for this example we're going to use the [official golang image](https:/
 
 Create a `Dockerfile` that looks like this:
 
-    FROM golang:onbuild
+    FROM golang:1.4
+    
     ENV PORT 5000
+    
+    WORKDIR /go/src/app
+    COPY . /go/src/app
+    RUN go-wrapper download
+    RUN go-wrapper install 
 
 And a `docker-compose.yml` that looks like this:
 
@@ -34,6 +40,7 @@ And a `docker-compose.yml` that looks like this:
       build: .
       ports:
         - 80:5000
+      command: command: go-wrapper run
 
 Convox uses Docker under the hood for containerization,
 and these two files contain all the information it needs to build and run your app.
