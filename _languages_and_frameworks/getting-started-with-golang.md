@@ -129,9 +129,15 @@ Edit your `Dockerfile` to contain:
 
     ENV PORT 5000
     ENTRYPOINT ["/go/bin/init"]
-    CMD ["app"]
 
-This will get you Alpine Linux 3.2 and Go 1.4.
+This will get you Alpine Linux 3.2 and Go 1.4. Edit your `docker-compose.yml` to look like this:
+
+    main:
+      build: .
+      ports:
+        - 80:5000
+      command: app
+
 As you can see, we haven't crossed the sub-100MB threshold, but we're almost 4 times smaller!
 
     $ docker build -t go-app .
