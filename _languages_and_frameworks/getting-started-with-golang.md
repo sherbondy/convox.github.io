@@ -26,13 +26,13 @@ However, for this example we're going to use the [official golang image](https:/
 Create a `Dockerfile` that looks like this:
 
     FROM golang:1.4
-    
+
     ENV PORT 5000
-    
+
     WORKDIR /go/src/app
     COPY . /go/src/app
     RUN go-wrapper download
-    RUN go-wrapper install 
+    RUN go-wrapper install
 
 And a `docker-compose.yml` that looks like this:
 
@@ -129,6 +129,7 @@ Edit your `Dockerfile` to contain:
 
     ENV PORT 5000
     ENTRYPOINT ["/go/bin/init"]
+    CMD ["app"]
 
 This will get you Alpine Linux 3.2 and Go 1.4. Edit your `docker-compose.yml` to look like this:
 
