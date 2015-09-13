@@ -108,7 +108,7 @@ This method, while a bit more manual (managing ssl certs)
 and complex (requires compiling the go app as a separate step from building your image),
 can yield images smaller than 50MB!
 
-Here's a middle of the raod approach.
+Here's a middle of the road approach.
 We start with a minimal linux runtime and still do the go compilation as part of our build.
 
 Edit your `Dockerfile` to contain:
