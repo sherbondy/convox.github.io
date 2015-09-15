@@ -4,7 +4,7 @@ sort: 10
 ---
 ## What is Convox?
 
-Convox is an open source [Platform as a Service](https://en.wikipedia.org/wiki/Platform_as_a_service) that runs in your own Amazon Web Services (AWS) account. Instead of signing up for a multi-tenant PaaS like Heroku, you can have your own. This gives you privacy and control over your platform and avoids the substantial markup on AWS prices that other platforms charge.
+Convox is an open source [Platform as a Service](https://en.wikipedia.org/wiki/Platform_as_a_service) that runs in your own Amazon Web Services (AWS) account.
 
 To start using Convox, you'll need to install the command line interface (CLI) onto your OS X or Linux computer. Then you can use the `convox` CLI to install the PaaS system into your AWS account.
 
