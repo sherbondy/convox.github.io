@@ -36,41 +36,6 @@ sort: 40
 ---
 ```
 
-### Project Structure
-
-```
-.
-├── Gemfile
-├── Gemfile.lock
-├── README.md
-├── _site
-│   └── # .gitignored; contains compiled site
-├── _config.yml
-├── assets # contains all css, javascript and static images.
-│   ├── images # static images
-│   └── docs # docs images namespaced by page
-│       ├── creating-an-iam-user-and-credentials
-│       │   └── get_started_iam.png
-│       └── deleting-an-iam-user
-│           └── delete_user.png
-├── _layouts #  contains layouts and partials
-├── _getting_started
-│   ├── getting-started-with-convox.md
-│   ├── deploying-an-application.md
-│   ├── environment-variables.md
-│   ├── custom-domains.md
-├── _documentation
-│   ├── concepts.md
-│   ├── creating-an-iam-user-and-credentials.md
-│   ├── deleting-an-iam-user.md
-│   ├── troubleshooting-apps.md
-│   ├── troubleshooting-install.md
-│   ├── uninstall-convox.md
-│   └── updating-convox.md
-└── index.md # top level pages
-```
-
 # Publishing
 
 Docs are published automatically by Github Pages.
-
