@@ -21,6 +21,15 @@ body {
   color: #a1a1b3;
 }
 
+.main-content hr {
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.main-content h1 {
+  font-weight: bold;
+}
+
 .main-content h2 {
   font-size: 20px;
   color: #666;
