@@ -1,5 +1,5 @@
 ---
-title: "Getting started with Golang"
+title: "Getting started with Go"
 sort: 10
 ---
 
@@ -87,12 +87,12 @@ If you're using `docker-machine` and your development VM is called `dev`, you ca
 
 You should see our application server: any path you visit at this host will get echo'ed back.
 
-![golang-welcome-page](/assets/images/docs/getting-started-with-golang/hello.png)
+![go-welcome-page](/assets/images/docs/getting-started-with-go/hello.png)
 
 
 ### Let's get minimal
 
-There are many ways to build your Golang apps with Docker.
+There are many ways to build your Go apps with Docker.
 The easiest way to compare them is by the size of the image created.
 The default golang image includes not just the Go runtime, but an entire linux distro:
 
