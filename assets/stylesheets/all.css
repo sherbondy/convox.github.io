@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: Helvetica, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.428571429;
@@ -19,6 +19,15 @@ body {
   line-height: 1;
   margin: 0.5em 0 0.5em;
   color: #a1a1b3;
+}
+
+.main-content h2 {
+  font-size: 20px;
+  color: #666;
+  font-weight: bold;
+  border-bottom: 1px #ccc solid;
+  margin-top: 18px;
+  margin-bottom: 10px;
 }
 
 .navbar-brand {
