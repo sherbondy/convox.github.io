@@ -29,6 +29,11 @@ body {
   margin-bottom: 20px;
 }
 
+.main-content h5 {
+  color: #777;
+  font-weight: bold;
+}
+
 .navbar-brand {
   background-image: url('/assets/images/static/navbar-logo.png');
   text-indent: -99999px;
@@ -198,12 +203,11 @@ hr {
 }
 
 pre {
-  padding: 7px;
+  padding: 12px;
   background-color: #444;
   color: white;
   margin-bottom: 24px;
   overflow-x: auto;
-  border: 5px ridge;
 }
 
 code {
