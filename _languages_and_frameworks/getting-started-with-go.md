@@ -5,12 +5,12 @@ sort: 10
 
 Convox provides tools for developing and deploying any dockerized application. This tutorial will walk through the steps required to create a new Go project and set it up to work with Convox.
 
-### Prerequisites
+## Prerequisites
 
 - [Docker](https://docs.docker.com/installation/)
 - [Convox CLI](/docs/getting-started-with-convox/)
 
-### Creating an app
+## Creating an app
 
 To get started, create a new `Dockerfile` and `docker-compose.yml` in a new directory. We'll call ours `go-app`.
 
@@ -45,7 +45,7 @@ And a `docker-compose.yml` that looks like this:
 Convox uses Docker under the hood for containerization,
 and these two files contain all the information it needs to build and run your app.
 
-### Simple Go Server
+## Simple Go Server
 
 Now we need an application server. Let's start with something simple in `main.go`:
 
@@ -73,7 +73,7 @@ Now we need an application server. Let's start with something simple in `main.go
 
 For your convenience, the following files can also be checked out from [Github](https://github.com/convox-examples/go-app).
 
-### First boot
+## First boot
 
 You can now boot the app with Convox:
 
@@ -90,7 +90,7 @@ You should see our application server: any path you visit at this host will get 
 ![go-welcome-page](/assets/images/docs/getting-started-with-go/hello.png)
 
 
-### Let's get minimal
+## Let's get minimal
 
 There are many ways to build your Go apps with Docker.
 The easiest way to compare them is by the size of the image created.
@@ -148,7 +148,7 @@ As you can see, we haven't crossed the sub-100MB threshold, but we're almost 4 t
 
 This minimal version of the app is available as a branch of the example project on [Github](https://github.com/convox-examples/go-app/tree/minimal).
 
-### Deploying to your Convox rack
+## Deploying to your Convox rack
 
 Now that you have an app working with `convox start` you can deploy it to production. First create an app in your rack:
 

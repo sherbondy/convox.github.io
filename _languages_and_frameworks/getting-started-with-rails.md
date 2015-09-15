@@ -4,18 +4,18 @@ sort: 50
 ---
 Convox provides tools for developing and deploying Rails applications. This tutorial will walk through the steps required to create a new Rails project and set it up to work with Convox.
 
-### Prerequisites
+## Prerequisites
 
 - [Docker](https://docs.docker.com/installation/)
 - [Convox CLI](/docs/getting-started-with-convox/)
 
-### Creating an app
+## Creating an app
 
 To get started, create a new rails app. We'll call ours **simple-rails**.
 
     $ rails new simple-rails
 
-### First boot
+## First boot
 
 Change directories into the generated app and boot it with Convox:
 
@@ -30,7 +30,7 @@ List the files in your app directory, and you'll notice 2 new ones, `Dockerfile`
 
 When these files don't already exist `convox start` makes some educated guesses and creates the best config files for you that it can. While this is nice, these files are meant as a starting point and can be completely customized. Let's edit `docker-compose.yml` to boot a Postgres container to be used in development mode.
 
-### Adding a Postgres process
+## Adding a Postgres process
 
 To use a Postgres container in development we need to describe it and link it to **web**, which we'll rename from **main**. Edit your `docker-compose.yml` to look like this:
 
@@ -65,7 +65,7 @@ and run bundler:
 
     $ bundle install
 
-### Sync volumes
+## Sync volumes
 
 Now we're ready to start editing the rails app, but first we should add a **volumes** directive to `docker-compose.yml`. This will keep the container filesystems in sync with your local filesystem. Edit your `docker-compose.yml` to look like this:
 
@@ -82,7 +82,7 @@ Now we're ready to start editing the rails app, but first we should add a **volu
     db:
       image: postgres
 
-### Add some functionality
+## Add some functionality
 
 Let's generate a scaffold so we can see Rails working. We'll make a trivial app to record books reading or read. Run the command with `convox exec` since DATABASE_URL is set on the container, but not in our local environment.
 
@@ -94,7 +94,7 @@ Run the migration:
 
 Now you should be able to navigate to http://&lt;docker host ip&gt;:5000/books and see a listing of books. You should be able to enter a book and save the record in your containerized database.
 
-### Deploying to your Convox rack
+## Deploying to your Convox rack
 
 Now that you have an app working with `convox start` you can deploy it to production. First create an app in your rack:
 

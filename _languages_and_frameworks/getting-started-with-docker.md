@@ -4,12 +4,12 @@ sort: 1
 ---
 Convox provides tools for developing and deploying any dockerized application. This tutorial will walk through the steps required to create a new Docker project and set it up to work with Convox.
 
-### Prerequisites
+## Prerequisites
 
 - [Docker](https://docs.docker.com/installation/)
 - [Convox CLI](/docs/getting-started-with-convox/)
 
-### Creating an app
+## Creating an app
 
 To get started, create a new `Dockerfile` and `docker-compose.yml` in a new directory. We'll call ours `apache-app`.
 
@@ -29,7 +29,7 @@ And your `docker-compose.yml` should look like this:
 
 Convox uses Docker under the hood for containerization, and these two files contain all the information it needs to build and run your app.
 
-### First boot
+## First boot
 
 You can now boot the app with Convox:
 
@@ -47,7 +47,7 @@ You should see the "It works!" welcome page.
 ![httpd-welcome-page](/assets/images/docs/getting-started-with-docker/it-works.png)
 
 
-### Updating our `Dockerfile`
+## Updating our `Dockerfile`
 
 The [docs of the httpd image](https://hub.docker.com/_/httpd/) instruct us to copy a folder
 to the location `/usr/local/apache2/htdocs/` to serve our html files.
@@ -72,7 +72,7 @@ Use ctrl+c to stop convox and restart your app with
 You should now be able to refresh your app and see the new page.
 
 
-### Sync volumes
+## Sync volumes
 
 Restarting convox every time you make a change can be painful. This is why `docker-compose` and `convox` support the **volumes** directive in the `docker-compose.yml`.
 
@@ -98,7 +98,7 @@ Let's add some emphasis to our `index.html`:
 You can now refresh the page in your browser and should see your new, more emphatic index!
 
 
-### Deploying to your Convox rack
+## Deploying to your Convox rack
 
 Now that you have an app working with `convox start` you can deploy it to production. First create an app in your rack:
 
