@@ -1,6 +1,6 @@
 ---
 title: "Getting started with Go"
-sort: 10
+sort: 40
 ---
 
 Convox provides tools for developing and deploying any dockerized application. This tutorial will walk through the steps required to create a new Go project and set it up to work with Convox.

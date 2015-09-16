@@ -1,6 +1,6 @@
 ---
 title: "Getting started with Docker"
-sort: 1
+sort: 30
 ---
 Convox provides tools for developing and deploying any dockerized application. This tutorial will walk through the steps required to create a new Docker project and set it up to work with Convox.
 
