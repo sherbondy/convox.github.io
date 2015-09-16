@@ -3,7 +3,7 @@ title: "Arbitrary Language Support"
 sort: 20
 ---
 
-Convox supports any language or framework that can be run in a Docker container, so adding support for your language is primarily an exercise in writing a good Dockerfile. This guide will walk you through the high-level steps of writing a Dockerfile for any language. 
+Convox supports any language or framework that can be run in a Docker container, so adding support for your language is primarily an exercise in writing a good Dockerfile. This guide will walk you through the high-level steps of writing a Dockerfile for any language.
 
 ## Start with an official image
 
@@ -19,7 +19,7 @@ Example:
 
 <div class="block-callout block-show-callout type-info">
   <h3>Onbuild images</h3>
-  <p>Many languages offer "onbuild" variants of their official Docker images. These use ONBUILD directives to trigger common tasks in downstream Dockerfiles that inherit from them. While these will work with Convox and can be very convenient to get started, we generally recommend against them, because they result in suboptimal caching behavior which can lead to consistently long build times.</p>
+  <p>Many languages offer "onbuild" variants of their official Docker images. These use ONBUILD directives to trigger common tasks in downstream Dockerfiles that inherit from them. While these will work with Convox and can be very convenient to get started, we generally recommend against them because they result in suboptimal caching behavior which can lead to consistently long build times.</p>
 </div>
 
 ## Install system dependencies
