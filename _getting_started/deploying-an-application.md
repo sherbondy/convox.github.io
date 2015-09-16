@@ -17,33 +17,33 @@ Change into the sinatra directory and create the application.
 
 When you create a new app, Convox provisions all of the AWS infrastructure required to support your core application. You'll also need to create the Postgres and Redis services that this app needs:
 
-    $ convox services create postgres1 postgres
-    Creating service postgres1 (postgres)... OK, postgres1
+    $ convox services create postgres pg1
+    Creating pg1 (postgres)... CREATING
 
-    $ convox services create redis1 redis
-    Creating service redis1 (redis)... OK, redis1
+    $ convox services create redis rd1
+    Creating rd1 (redis)... CREATING
 
 <div class="block-callout block-show-callout type-info">
-  <p>Each of these create commands takes a few minutes to complete. We recommend running them in parallel in separate terminals to save time.</p>
+  <p>Each of these services will take a few minutes to create. You can see the current status with `convox services`.</p>
 </div>
 
 ### Set the environment
 
 Once the service creation is complete, set the `POSTGRES_URL` and `REDIS_URL` environment variables. You can fetch these URLs using the `convox services info` command. Note that your passwords will be different than those shown here.
 
-    $ convox services info postgres1
-    Name    postgres1
+    $ convox services info pg1
+    Name    pg1
     Status  running
-    URL     postgres://postgres:KEDS6tKPZb1iffVB8IXi@postgres1.cbm068zjzjcr.us-east-1.rds.amazonaws.com:5432/app
+    URL     postgres://postgres:KEDS6tKPZb1iffVB8IXi@pg1.cbm068zjzjcr.us-east-1.rds.amazonaws.com:5432/app
 
-    $ convox env set POSTGRES_URL=postgres://postgres:KEDS6tKPZb1iffVB8IXi@postgres1.cbm068zjzjcr.us-east-1.rds.amazonaws.com:5432/app
+    $ convox env set POSTGRES_URL=postgres://postgres:KEDS6tKPZb1iffVB8IXi@pg1.cbm068zjzjcr.us-east-1.rds.amazonaws.com:5432/app
 
-    $ convox services info redis1
-    Name    redis1
+    $ convox services info rd1
+    Name    rd1
     Status  running
-    URL     redis://u:Rn2uRT7g7NJ8iXNAtnSj@redis1-Balancer-124JJ4R695MAR-153811640.us-east-1.elb.amazonaws.com:6379/0
+    URL     redis://u:Rn2uRT7g7NJ8iXNAtnSj@rd1-Balancer-124JJ4R695MAR-153811640.us-east-1.elb.amazonaws.com:6379/0
 
-    $ convox env set REDIS_URL=redis://u:Rn2uRT7g7NJ8iXNAtnSj@redis1-Balancer-124JJ4R695MAR-153811640.us-east-1.elb.amazonaws.com:6379/0
+    $ convox env set REDIS_URL=redis://u:Rn2uRT7g7NJ8iXNAtnSj@rd1-Balancer-124JJ4R695MAR-153811640.us-east-1.elb.amazonaws.com:6379/0
 
 ### Deploy the app
 
