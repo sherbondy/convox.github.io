@@ -2,13 +2,20 @@
 title: "Scaling Processes"
 sort: 40
 ---
-### Scaling processes up
+### Scaling process concurrency
 
 You can scale the number of application processes using the `convox scale` command. For example, to scale the "web" process up, use the following command:
 
     $ convox scale web --count 2
     PROCESS  COUNT  MEM
     postgres 1      256
+    redis    1      256
+    web      2      256
+    worker   1      256
+
+    $ convox scale postgres --count 0
+    PROCESS  COUNT  MEM
+    postgres 0      256
     redis    1      256
     web      2      256
     worker   1      256
@@ -23,7 +30,7 @@ This schedules a second web process to run. Updating the application configurati
     bc15af240d69  web       RGJAINPIBLP  256    sh -c bin/web
     f850e426dfe5  worker    RGJAINPIBLP  256    sh -c bin/worker
 
-### Scaling processes memory
+### Scaling process memory
 
 You can also scale the memory available to a process using the `convox scale` command. For example, to double the memory of the web process, use the following command:
 
@@ -35,19 +42,6 @@ You can also scale the memory available to a process using the `convox scale` co
     worker   1      256
 
 This schedules two new web processes to come up with 512 MB of memory, then stops the 256 MB web processes.
-
-### Scaling processes down
-
-You can also scale processes down to free up resources. For example, after you have configured [postgres](/docs/postgresql) or [redis](/docs/redis) services, you no longer need the development postgres and redis process:
-
-    $ convox scale postgres --count 0
-    $ convox scale redis --count 0
-
-    $ convox ps
-    ID            PROCESS  RELEASE      MEM    COMMAND
-    340ea2bb5ec2  web      RGJAINPIBLP  512    sh -c bin/web
-    23b8c5884472  web      RGJAINPIBLP  512    sh -c bin/web
-    f850e426dfe5  worker   RGJAINPIBLP  256    sh -c bin/worker
 
 ### Capacity
 
