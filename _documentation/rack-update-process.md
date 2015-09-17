@@ -20,6 +20,7 @@ Some if they are rolled since there is only one api instance
 ## App Downtime
 
 Can be avoided by running at least 2 instances of critical processes
+A little bit about how ECS reschedules updated container
 
 ## Required Releases
 
