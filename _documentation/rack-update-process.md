@@ -16,11 +16,12 @@ Initiates an update on your convox CloudFormation stack using the new template
 
 None if Cluster EC2 instances aren't rolled
 Some if they are rolled since there is only one api instance
+A little bit about how ECS reschedules updated container
 
 ## App Downtime
 
 Can be avoided by running at least 2 instances of critical processes
-A little bit about how ECS reschedules updated container
+Explain how containers are rescheduled onto new EC2 instances as they come up in the cluster
 
 ## Required Releases
 
