@@ -9,7 +9,7 @@ You can create PostgreSQL databases using the `convox services create` command. 
     $ convox services create postgres pg1
     Creating postgres (pg1)... CREATING
 
-This kicks off the provisioning of a Postgres database on the Amazon RDS service. Creation can take up to 15 minutes. To find out When the database becomes available, use the following command:
+This kicks off the provisioning of a Postgres database on the Amazon RDS service. Creation can take up to 15 minutes. To find out if the database available, use the following command:
 
     $ convox services info pg1
     Name    postgres
