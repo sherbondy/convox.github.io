@@ -35,3 +35,5 @@ In some cases you might not want an interactive session. You might just want to 
 
     $ convox run web bin/long_task --detach
     Running `bin/long_task` on web... OK
+
+The output of detached process runs can be seen in the app logs available via the `convox logs` command.
