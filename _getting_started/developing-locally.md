@@ -302,6 +302,7 @@ Now let's create a `.env` file:
     TEST_THREE=4
 
 What do you think will happen? As stated above, we'll populate variables that are undeclared, ie: have not equals sign.
+
 This is to fit with the expected meaning: `TEST_ONE` is declared to exist, whereas we interpret `TEST_TWO=`
 as being declared _and initilized to the empty string_.
 It also does not overwrite `TEST_THREE` to follow [docker-compose][compose], though perhaps it should... let us know what you think!
