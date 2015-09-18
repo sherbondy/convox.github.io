@@ -7,13 +7,26 @@ sort: 11
 Local development is hard to get right.
 What starts as a simple install script sprawls into its own repository of bash scripts that run to completion on exactly the wrong person's machine.
 
-We seek a declarative solution that has a clean contract with the underlying operating system.
+Convox is the simplest and most intuitive way to leverage Docker for declarative local development.
 
-Linux containers solve the clean contract and [dev/prod parity][dev-prod] problem by making virtualization cheap and reliable.
+## Background
+
+Inspired by our work at Heroku and [12 factor app design](http://12factor.net),
+we seek a declarative solution that has a clean contract with the underlying operating system.
+
+We found tools like [foreman][foreman] got us close, but all too often subtle differences in
+development and production execution environments lead to errors in live systems that were
+often hard to reproduce, let alone debug.
+
+Linux containers solve many of these issues, including the [dev/prod parity][dev-prod] problem, by making virtualization cheap and reliable.
 Docker is the de-facto open source standard for building and running linux containers:
 by giving linux containers an API, Docker gives them a standard.
 
-Convox is the simplest and most intuitive way to leverage Docker for declarative local development.
+We believe a development environment should have these properties:
+
+  - *exhaustive*: _anything_ not referenced in the manifest should not be available to a running system.
+  - *declarative*: make definitions and references to other definitions. order should be inferred, not encoded.
+  - *reproducible*: deterministic builds, common runtimes, and explicit environments make dev/prod parity possible
 
 ## The Manifest(s)
 
@@ -28,22 +41,25 @@ Convox uses three files to build and run your development environment:
 
 Only one of: `docker-compose.yml`, `Procfile`, or `Dockerfile` is required.
 `convox start` will generate a `docker-compose.yml` from a `Dockerfile`.
-It will generate a `docker-compose.yml` AND a `Dockerfile` from a `Procfile`.
+`convox start` will generate a `docker-compose.yml` AND a `Dockerfile` from a `Procfile`.
 
-You will most likely need to customize these generated files until we add better project detection ([pull requests welcome][docs-github]!).
+You will most likely need to customize these generated files until we add better project detection ([pull requests welcome][rack-github]!).
 
-The other files are there to support information that is not in the manifest but
-is required for a deterministic and declarative way to run your software.
+The `Dockerfile` and `.env` file are there to support information that is referenced in the manifest
+and required for a deterministic and declarative way to run your software.
+This allows the manifest to act as a single source of truth.
 
-The build instructions, in the `Dockerfile`, defines how create your software from source code.
+The build instructions, in the `Dockerfile`, define how to create your software from source code.
 
 The environment data, in the `.env`, allows you to configure your development environment.
+
+Before we dive into what these files look like, let's take a look at the Convox commands we'll need to be familiar with.
 
 ## Convox commands
 
 ### `convox start`
 
-Convox supports a [Docker][docker] based local development workflow via the `convox start`
+Convox supports a [Docker][docker]-based local development workflow via the `convox start`
 [CLI][cli] command.
 
 Like [docker-compose][compose], `convox` is a tool for defining and running
@@ -149,11 +165,11 @@ Each top level key defines the configuration necessary to run a process for your
 If the parameters look familiar, it is because they are.
 Everything [docker compose][compose-conf] supports is also supported here.
 
-This particular manifest describes four processes: `main`, `worker`, `postgres`, and `redis`.
+This particular manifest describes four processes: `web`, `worker`, `postgres`, and `redis`.
 The `postgres` and `redis` processes are both images, which means they are already built.
 They are pulled from [Docker Hub][docker-hub] during `convox start` using `docker pull`.
 
-The `main` process has a `build` key.
+The `web` process has a `build` key.
 That instructs `convox start` to build an image using the `Dockerfile` in the specified directory.
 
 The `ports` key is passed to `docker run` and determines port mappings for the host VM.
@@ -162,12 +178,14 @@ In this example, the port 5000 of the docker host machine is being mapped to por
 The `worker` process configuration is copied from web because it is built with the same codebase,
 talks to the same database, and otherwise shares everything in common with the `web` process except the command.
 
-And the ports. We've already mapping `3000` on the host container to the exposed `3000` on `main`.
+And the ports. We've already mapping `3000` on the host container to the exposed `3000` on `web`.
 Because we can't have two processes on the same port, this will cause an error starting the `worker`.
+
+The worker doesn't need that port for anything anyways and this becomes explicit in the manifest.
 
 <div class="block-callout block-show-callout type-info">
 <h3>Ports</h3>
-<p>You can either explicitly map ports from the host os via "HOST:CONTAINER" syntax
+<p>You can either explicitly map ports from the host operating system via "HOST:CONTAINER" syntax
 in the manifest, but that can lead to conflicts.
 This is usually only necessary few to one process in your application to explicitly define a port and
 that is usually to communicate with an external load balancer..
@@ -189,7 +207,7 @@ source code directories into the docker container so you can do code reloading o
 The `links` key defines dependencies on other processes named in this file.
 `convox start` uses [docker container linking][docker-links] to connect processes in development.
 In general, it is a good practice to have containers wait for connections they expect to become available.
-This way if the main process completes startups before the database you don't throw an error because the connection is not there.
+This way if the main process completes startup before the database, you don't throw an error because the connection is not there.
 
 You can read more about [the docker-compose configuration options][compose-conf] on Docker's website.
 
@@ -305,7 +323,7 @@ What do you think will happen? As stated above, we'll populate variables that ar
 
 This is to fit with the expected meaning: `TEST_ONE` is declared to exist, whereas we interpret `TEST_TWO=`
 as being declared _and initialized to the empty string_.
-It also does not overwrite `TEST_THREE` to follow [docker-compose][compose], though perhaps it should... [let us know what you think][docs-github]!
+It also does not overwrite `TEST_THREE` to follow [docker-compose][compose], though perhaps it should... [let us know what you think][issues-github]!
 
 Sure enough, `convox start | grep TEST` gives us what we expect:
 
@@ -329,4 +347,5 @@ You can still avoid committing secrets to your repository, which makes for happy
 [dev-prod]: http://12factor.net/dev-prod-parity
 [12fac-oneoff]: http://12factor.net/admin-processes
 [docker-links]: https://docs.docker.com/userguide/dockerlinks/
-[docs-github]: https://github.com/convox/convox.github.io
+[rack-github]: https://github.com/convox/rack
+[issues-github]: https://github.com/convox/convox.github.io/issues/new
