@@ -242,10 +242,10 @@ It is extremely common for entrypoint scripts to do their work in shell and end 
 
 Both `ENTRYPOINT` and `CMD` can be overriden at runtime. In fact, everything in the
 build can be overridden or augmented with information passed to `docker run`.
-In fact, that's the very reason we need something like `docker-compose.yml`!
+That's the very reason we need something like `docker-compose.yml`!
 
-Every deviation from the vanilla `docker run <image>` invocation has the potential
-to change behavior (in fact that's often why we do it).
+To be fair, every deviation from the vanilla `docker run <image>` invocation has the potential
+to change behavior.
 This is why a `Dockerfile` alone is not enough to describe an application.
 
 For more information on how to write Dockerfiles, see the [Docker user guide][docker-ug] and the [Dockerfile reference][dockerfile-ref].
