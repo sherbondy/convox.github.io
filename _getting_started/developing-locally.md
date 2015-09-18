@@ -13,7 +13,7 @@ Linux containers solve the clean contract and [dev/prod parity][dev-prod] proble
 Docker is the de-facto open source standard for building and running linux containers:
 by giving linux containers an API, Docker gives them a standard.
 
-Convox is the simplest and most intuitive way to leverage Docker for declarartive local development.
+Convox is the simplest and most intuitive way to leverage Docker for declarative local development.
 
 ## The Manifest(s)
 
@@ -30,14 +30,14 @@ Only one of: `docker-compose.yml`, `Procfile`, or `Dockerfile` is required.
 `convox start` will generate a `docker-compose.yml` from a `Dockerfile`.
 It will generate a `docker-compose.yml` AND a `Dockerfile` from a `Procfile`.
 
-You will most likely need to customize these generated files until we add better project detection (pull requests welcome!).
+You will most likely need to customize these generated files until we add better project detection ([pull requests welcome][docs-github]!).
 
 The other files are there to support information that is not in the manifest but
-is required for a determinstic and declarative way to run your software.
+is required for a deterministic and declarative way to run your software.
 
 The build instructions, in the `Dockerfile`, defines how create your software from source code.
 
-The enviroment data, in the `.env`, allows you to configure your development enviroment.
+The environment data, in the `.env`, allows you to configure your development environment.
 
 ## Convox commands
 
@@ -51,7 +51,7 @@ multi-container applications with Docker.
 However, `convox start` is only focused on local development and offloads as much work as possible
 to Docker itself.
 
-`convox start` builds and runs the processes decalared in your application manifest with environment
+`convox start` builds and runs the processes declared in your application manifest with environment
 stored in a `.env` file and interleaves the standard output and standard error of those processes.
 It allows Docker to act as build service, runtime, and process manager.
 
@@ -101,7 +101,7 @@ Depending on your base image's operating system, you can can also start a shell 
     $ convox exec main bash
     $ convox exec web sh
 
-Or start an interactive session with your favorate REPL:
+Or start an interactive session with your favorite REPL:
 
     $ convox exec web rails console    # rails
     $ convox exec web node             # node.js
@@ -156,7 +156,7 @@ They are pulled from [Docker Hub][docker-hub] during `convox start` using `docke
 The `main` process has a `build` key.
 That instructs `convox start` to build an image using the `Dockerfile` in the specified directory.
 
-The `ports` key is passsed to `docker run` and determines port mappings for the host VM.
+The `ports` key is passed to `docker run` and determines port mappings for the host VM.
 In this example, the port 5000 of the docker host machine is being mapped to port 3000 in the container.
 
 The `worker` process configuration is copied from web because it is built with the same codebase,
@@ -167,7 +167,7 @@ Because we can't have two processes on the same port, this will cause an error s
 
 <div class="block-callout block-show-callout type-info">
 <h3>Ports</h3>
-<p>You can either explicity map ports from the host os via "HOST:CONTAINER" syntax
+<p>You can either explicitly map ports from the host os via "HOST:CONTAINER" syntax
 in the manifest, but that can lead to conflicts.
 This is usually only necessary few to one process in your application to explicitly define a port and
 that is usually to communicate with an external load balancer..
@@ -184,7 +184,7 @@ docker to map arbitrary ports to your container.
 
 The `volumes` key is passed to `docker run` to mount a volume for read and write access into the running container.
 This is useful for mapping in config files that exist in your source repository or for mapping the
-source code directories into the docker conatiner so you can do code reloading on change detection.
+source code directories into the docker container so you can do code reloading on change detection.
 
 The `links` key defines dependencies on other processes named in this file.
 `convox start` uses [docker container linking][docker-links] to connect processes in development.
@@ -218,7 +218,7 @@ It describes the steps you need to build and run a unix process.
 
 The `FROM` declaration specifies your "base image".
 For applications you are developing, it is most common to start with a minimal operating
-system or a language-specific image manintained by that language's community.
+system or a language-specific image maintained by that language's community.
 
 In Docker, a build takes place in terms of the "build context", which is basically a
 snapshot of the directory you're currently in when you run `docker build` or `convox start`.
@@ -227,7 +227,7 @@ snapshot of the directory you're currently in when you run `docker build` or `co
 image. `RUN` executes the given command in the context of the image.
 
 `EXPOSE` allows docker to know which tcp or udp ports the application binds to.
-If you do not publish the port it is only avaiable via name to a [linked service][docker-links].
+If you do not publish the port it is only available via name to a [linked service][docker-links].
 
 
 
@@ -240,7 +240,7 @@ It is extremely common for entrypoint scripts to do their work in shell and end 
 
     exec "$@"
 
-Both `ENTRYPOINT` and `CMD` can be overriden at runtime. In fact, everything in the
+Both `ENTRYPOINT` and `CMD` can be overridden at runtime. In fact, everything in the
 build can be overridden or augmented with information passed to `docker run`.
 That's the very reason we need something like `docker-compose.yml`!
 
@@ -304,8 +304,8 @@ Now let's create a `.env` file:
 What do you think will happen? As stated above, we'll populate variables that are undeclared, ie: have not equals sign.
 
 This is to fit with the expected meaning: `TEST_ONE` is declared to exist, whereas we interpret `TEST_TWO=`
-as being declared _and initilized to the empty string_.
-It also does not overwrite `TEST_THREE` to follow [docker-compose][compose], though perhaps it should... let us know what you think!
+as being declared _and initialized to the empty string_.
+It also does not overwrite `TEST_THREE` to follow [docker-compose][compose], though perhaps it should... [let us know what you think][docs-github]!
 
 Sure enough, `convox start | grep TEST` gives us what we expect:
 
@@ -329,3 +329,4 @@ You can still avoid committing secrets to your repository, which makes for happy
 [dev-prod]: http://12factor.net/dev-prod-parity
 [12fac-oneoff]: http://12factor.net/admin-processes
 [docker-links]: https://docs.docker.com/userguide/dockerlinks/
+[docs-github]: https://github.com/convox/convox.github.io
