@@ -293,7 +293,7 @@ Now simply running `convox start`:
 
 Here you can see we build the image, then print out the exact command used to run the container, and then run the command.
 Most servers won't exit, but our command does.
-Notice what get what we expect: `TEST_THREE` has a value, but `TEST_TWO` and `TEST_TWO` do not.
+Notice we get what we expect: `TEST_THREE` has a value, but `TEST_TWO` and `TEST_TWO` do not.
 
 Now let's create a `.env` file:
 
