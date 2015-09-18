@@ -20,14 +20,12 @@ In one terminal window, run `convox logs --app convox` to get a feed of your dep
 
 ## Problem: My app deployed but I can not access it
 
-**Solution: Run `convox logs` and `convox debug` to inspect your application logs and cluster events for problems placing your container, starting your app, and registering with a load balancer**
+**Solution: Run `convox logs` to inspect your application logs and cluster events for problems placing your container, starting your app, and registering with a load balancer**
 
 Sometimes subtle configuration problems prevent your app from booting successfully.
 
 Run `convox logs` to access your application logs for errors. A common problem is the app failing to start due to missing environment variables. Set all environment variables you need with `convox env` to boot your app.
 
-Run `convox debug` to get a list of all the CloudFormation and ECS events for your application. A common problem is failing to start due to insufficient capacity. Delete some unused apps with `convox apps delete` or increase your cluster capacity.
-
 ## Problem: Convox deploy hangs at 'Waiting for app...'
 
-**Solution: Ensure that your application is bound to 0.0.0.0, not 127.0.0.1. Otherwise diagnose with `convox logs` and `convox debug` as described above.
+**Solution: Ensure that your application is bound to 0.0.0.0, not 127.0.0.1. Otherwise diagnose with `convox logs` as described above.
