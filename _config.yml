@@ -11,6 +11,9 @@ collections:
   documentation:
     output: true
     permalink: /docs/:name/
+  api:
+    output: true
+    permalink: /api/:name/
 defaults:
   - scope:
       path: ""
