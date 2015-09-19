@@ -22,7 +22,6 @@ $ jekyll serve
 
 Please send updates to documentation as [Pull Requests](/pulls).
 
-
 ### Frontmatter
 
 Each page in the documentation has a header, called frontmatter, this controls where it's displayed and it's title.
