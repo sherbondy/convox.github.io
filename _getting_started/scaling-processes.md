@@ -62,4 +62,4 @@ Your dedicated Convox Rack is a set of instances, each with a fixed amount of me
 
 The container service keeps the last configuration running until the new configuration successfully starts.
 
-To increase your Convox Rack capacity, see the `convox system scale` command or contact support@convox.com
+To increase your Convox Rack capacity, see the `convox rack scale` command or contact support@convox.com
